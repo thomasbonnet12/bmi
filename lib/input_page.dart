@@ -12,8 +12,14 @@ class _InputPageState extends State<InputPage> {
       appBar: AppBar(
         title: Text('BMI CALCULATOR'),
       ),
-      body: Center(
-        child: Text('Body Text'),
+      body: Container(
+        decoration: BoxDecoration(
+          color: Color(0xFF1D1E33),
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        margin: EdgeInsets.all(15.0),
+        height: 200.0,
+        width: 170.0,
       ),
     );
   }
