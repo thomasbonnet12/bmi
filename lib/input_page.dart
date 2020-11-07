@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 const bottomContainerHeight = 80.0;
 const ActiveCardColor = Color(0xFF1D1E33);
 const bottomContainerColour = Color(0xFFEB1555);
+const iconMale = FontAwesomeIcons.mars;
 
 class InputPage extends StatefulWidget {
   @override
@@ -23,22 +24,28 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: Resuablecard(
+                  child: ReusableCard(
                     colour: ActiveCardColor,
-                    cardChild: IconContent(),
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.mars,
+                      label: 'MALE',
+                    ),
                   ),
                 ),
                 Expanded(
-                  child: Resuablecard(
+                  child: ReusableCard(
                     colour: ActiveCardColor,
-                    cardChild: IconContent(),
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.venus,
+                      label: 'WOMEN',
+                    ),
                   ),
                 ),
               ],
             ),
           ),
           Expanded(
-            child: Resuablecard(
+            child: ReusableCard(
               colour: ActiveCardColor,
             ),
           ),
@@ -46,12 +53,12 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: Resuablecard(
+                  child: ReusableCard(
                     colour: ActiveCardColor,
                   ),
                 ),
                 Expanded(
-                  child: Resuablecard(
+                  child: ReusableCard(
                     colour: ActiveCardColor,
                   ),
                 ),
@@ -71,20 +78,25 @@ class _InputPageState extends State<InputPage> {
 }
 
 class IconContent extends StatelessWidget {
+  IconContent({this.icon, this.label});
+
+  final IconData icon;
+  final String label;
+
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Icon(
-          FontAwesomeIcons.mars,
+          icon,
           size: 80.0,
         ),
         SizedBox(
           height: 15.0,
         ),
         Text(
-          'MALE',
+          label,
           style: TextStyle(
             fontSize: 18.0,
             color: Color(0xFF8D8E98),
@@ -95,8 +107,8 @@ class IconContent extends StatelessWidget {
   }
 }
 
-class Resuablecard extends StatelessWidget {
-  Resuablecard({@required this.colour, this.cardChild});
+class ReusableCard extends StatelessWidget {
+  ReusableCard({@required this.colour, this.cardChild});
 
   final Color colour;
   final Widget cardChild;
