@@ -33,8 +33,8 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     colour: selectedGender == GenderType.male
-                        ? ActiveCardColor
-                        : inactiveCardColor,
+                        ? kActiveCardColor
+                        : kInactiveCardColor,
                     cardChild: IconContent(
                       icon: FontAwesomeIcons.mars,
                       label: 'MALE',
@@ -49,8 +49,8 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     colour: selectedGender == GenderType.female
-                        ? ActiveCardColor
-                        : inactiveCardColor,
+                        ? kActiveCardColor
+                        : kInactiveCardColor,
                     cardChild: IconContent(
                       icon: FontAwesomeIcons.venus,
                       label: 'WOMEN',
@@ -62,7 +62,7 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: ReusableCard(
-              colour: ActiveCardColor,
+              colour: kActiveCardColor,
               cardChild: Column(children: [
                 Text('HEIGHT'),
               ]),
@@ -73,22 +73,22 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: ReusableCard(
-                    colour: ActiveCardColor,
+                    colour: kActiveCardColor,
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
-                    colour: ActiveCardColor,
+                    colour: kActiveCardColor,
                   ),
                 ),
               ],
             ),
           ),
           Container(
-            color: bottomContainerColour,
+            color: kBottomContainerColour,
             margin: EdgeInsets.only(top: 10.0),
             width: double.infinity,
-            height: bottomContainerHeight,
+            height: kBottomContainerHeight,
           ),
         ],
       ),
