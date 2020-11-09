@@ -176,3 +176,10 @@ class _InputPageState extends State<InputPage> {
     );
   }
 }
+
+class RoundIconButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
