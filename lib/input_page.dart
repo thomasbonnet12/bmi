@@ -15,6 +15,7 @@ class _InputPageState extends State<InputPage> {
   GenderType selectedGender;
   int height = 180;
   int weight = 60;
+  int age = 40;
 
   @override
   Widget build(BuildContext context) {
@@ -136,12 +137,22 @@ class _InputPageState extends State<InputPage> {
                           children: [
                             RoundIconButton(
                               icon: FontAwesomeIcons.minus,
+                              onPressed: () {
+                                setState(() {
+                                  weight--;
+                                });
+                              },
                             ),
                             SizedBox(
                               width: 10.0,
                             ),
                             RoundIconButton(
                               icon: FontAwesomeIcons.plus,
+                              onPressed: () {
+                                setState(() {
+                                  weight++;
+                                });
+                              },
                             ),
                           ],
                         ),
@@ -152,6 +163,9 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     colour: kActiveCardColor,
+                    cardChild: Column(
+                      children: [],
+                    ),
                   ),
                 ),
               ],
@@ -170,14 +184,15 @@ class _InputPageState extends State<InputPage> {
 }
 
 class RoundIconButton extends StatelessWidget {
-  RoundIconButton({this.icon});
+  RoundIconButton({this.icon, this.onPressed});
   final IconData icon;
+  final Function onPressed;
 
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
       child: Icon(icon),
-      onPressed: () {},
+      onPressed: onPressed,
       elevation: 9.0,
       constraints: BoxConstraints.tightFor(
         width: 56.0,
